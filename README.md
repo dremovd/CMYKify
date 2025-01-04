@@ -1,105 +1,77 @@
-# CMYKify
+## CMYKify
 
-CMYKify is a barebones, open-source Python proof-of-concept that converts AI-generated images from RGB to CMYK with an embedded color profile for print readiness.  
+### Overview
+CMYKify is an open-source project that helps you convert AI-generated RGB images into a print-ready CMYK format with an embedded color profile. It consists of two main components:
+1. A Python library that handles image conversion.
+2. A minimal web service demonstrating how to use the library.
 
-## Table of Contents
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+#### Project Status
+- **Proof of Concept:** This project aims to serve as a reference implementation and is not optimized for production use.
 
-## Features
+---
 
-- **RGB to CMYK Conversion**: Automatically converts AI-generated RGB images to CMYK.
-- **Color Profile Embedding**: Allows embedding of a desired ICC color profile into the output file.
-- **Barebones & Simple**: Minimal code to demonstrate the end-to-end process, with no focus on efficiency—easy to understand and extend.
+### Features
+- **RGB to CMYK Conversion**  
+  Converts AI-generated images from RGB color space to a CMYK color space.
+  
+- **Color Profile Embedding**  
+  Provides the option to embed a color profile for more consistent print results.
 
-## Getting Started
+---
 
-### Prerequisites
-- Python 3.7 or newer  
-- A virtual environment (optional, but recommended)
-- [Pillow](https://pypi.org/project/Pillow/) or any other library capable of handling image processing in Python
-- ICC color profiles (e.g., ISOcoated_v2_300_eci.icc) you want to embed
+### Requirements
+- **Python** 3.x
+- Additional dependencies will be listed here once identified. (stub)
+
+---
 
 ### Installation
-
-1. **Clone the Repository**  
-   git clone https://github.com/your-username/CMYKify.git
-
-2. **Install Dependencies**  
-   cd CMYKify  
-   pip install -r requirements.txt
-
-   _Note: A sample `requirements.txt` could look like this:_  
-   Pillow  
-
-   You can add or remove libraries as needed.
-
-## Usage
-
-1. **Prepare Your Input**  
-   - Have an RGB image ready (e.g., `input_image.jpg`).  
-   - Have an ICC color profile of your choice (e.g., `ISOcoated_v2_300_eci.icc`).
-
-2. **Run the Python Script**  
-   Below is a simple example script called `cmykify.py` that can be included in this repository:
-
-   from PIL import Image, ImageCms
-   import sys
-
-   def convert_to_cmyk(input_path, output_path, profile_path):
-       # Open the RGB image
-       rgb_image = Image.open(input_path)
-
-       # Create an ICC profile object
-       cmyk_profile = ImageCms.createProfile("CMYK")  # Generic CMYK
-       desired_profile = ImageCms.ImageCmsProfile(profile_path)
-
-       # Build transform from RGB to the desired CMYK profile
-       transform = ImageCms.buildTransform(desired_profile, cmyk_profile, "RGB", "CMYK")
-       cmyk_image = ImageCms.applyTransform(rgb_image, transform)
-
-       # Save the output image with the embedded CMYK profile
-       cmyk_image.save(output_path, icc_profile=open(profile_path, "rb").read())
-
-   if __name__ == "__main__":
-       if len(sys.argv) != 4:
-           print("Usage: python cmykify.py <input_image> <output_image> <icc_profile>")
-           sys.exit(1)
-
-       input_image = sys.argv[1]
-       output_image = sys.argv[2]
-       icc_profile = sys.argv[3]
-
-       convert_to_cmyk(input_image, output_image, icc_profile)
-       print(f"Converted {input_image} to CMYK and saved as {output_image} using profile {icc_profile}")
-
-3. **Example Command**  
-   python cmykify.py input_image.jpg output_image.jpg ISOcoated_v2_300_eci.icc
-
-   This will produce a CMYK image (`output_image.jpg`) with the specified ICC profile embedded.
-
-## Contributing
-
-We welcome contributions of all kinds:
-- **Bug Reports & Feature Requests**: Please use GitHub [Issues](../../issues) to report bugs or suggest features.  
-- **Pull Requests**: Fork the repository, make your changes, and submit a pull request. We’ll review it promptly.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use it as you see fit.
+```bash
+# Coming soon
+```
+(stub)
 
 ---
 
-### Acknowledgments
+### Quick Start
+1. **Install CMYKify**  
+   (stub)
 
-- [Pillow](https://pypi.org/project/Pillow/) for image manipulation in Python.
-- ICC profiles from various organizations for color management.
+2. **Run the Library**  
+   (stub)
+
+3. **Access the Web Service**  
+   (stub)
 
 ---
 
-_We hope CMYKify simplifies your workflow in bridging AI-generated visuals into print-ready formats!_
+### Usage
+#### Python Library
+(stub)
+
+#### Web Service
+(stub)
+
+---
+
+### Example
+(stub)
+
+---
+
+### Contributing
+Contributions are welcome! Please open an issue or submit a pull request to discuss potential changes or improvements. (stub)
+
+---
+
+### License
+TBD (stub)
+
+---
+
+### Contact
+If you have any questions, comments, or suggestions, please feel free to open an issue.  
+
+---
+
+**End of README**
